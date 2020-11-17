@@ -41,6 +41,32 @@ public:
 
   int Size() { return size_; }
 
+ T Difference()
+    {
+
+        Node* ptr;
+
+        ptr = _head;
+        if (Size() == 0)
+            throw std::logic_error;
+        if (Size() == 1)
+            return _head;
+
+        return getTDifferenceHelper(ptr);
+
+    }
+
+    getTDifferenceHelper(Node * ptr)
+    {
+
+        if (ptr == nullptr)
+            return _head;
+        else
+
+            return getLengthRHelper(ptr->_head -= ptr->_next);
+
+    }
+  
   const T& Front() const {
     if (size_ == 0) {
       throw std::underflow_error("list is empty");
